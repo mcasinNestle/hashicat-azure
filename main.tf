@@ -1,7 +1,14 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
+
 terraform {
+  cloud { 
+     organization = "nestle-org" 
+      workspaces { 
+       name = "hashicat-azure" 
+     } 
+  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
