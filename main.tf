@@ -6,7 +6,7 @@ terraform {
   cloud { 
      organization = "nestle-org" 
       workspaces { 
-       name = "hashicat-azure-simple" 
+       name = "hashicat-azure-simple2" 
      } 
   }
   required_providers {
