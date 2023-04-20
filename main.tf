@@ -195,3 +195,15 @@ resource "null_resource" "configure-cat-app" {
     }
   }
 }
+
+data "http" "hashicat-web" {
+  depends_on = [null_resource.configure-cat-app]
+  url = "http://${azurerm_public_ip.catapp-pip.fqdn}"
+
+  lifecycle {
+    postcondition {
+      condition     = contains([200, 201, 204], self.status_code)
+      error_message = "Status code invalid"
+    }
+  }
+}
